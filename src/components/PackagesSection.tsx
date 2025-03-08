@@ -92,7 +92,7 @@ const PackagesSection = () => {
     <section className="py-20 relative">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">TRAVEL PACKAGES</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 font-space">TRAVEL PACKAGES</h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
             Choose the perfect package for your cosmic adventure, from economical shuttles to VIP zero-gravity experiences.
           </p>
@@ -100,48 +100,49 @@ const PackagesSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {packages.map((pkg) => (
-            <Card 
-              key={pkg.id} 
-              className={`h-full transition-all duration-300 cursor-pointer ${
-                selectedPackage === pkg.id 
-                  ? 'border-cosmic-purple ring-2 ring-cosmic-purple relative'
-                  : 'border-border hover:border-cosmic-purple/50'
-              } ${pkg.popular ? 'pt-6 mt-4' : ''}`}
-              onClick={() => setSelectedPackage(pkg.id)}
-            >
+            <div key={pkg.id} className="relative">
               {pkg.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-cosmic-purple text-white text-xs font-bold py-1 px-4 rounded-full flex items-center">
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-cosmic-purple text-white text-xs font-bold py-1 px-4 rounded-full flex items-center z-10">
                   <Star className="h-3 w-3 mr-1 fill-white" />
                   MOST POPULAR
                 </div>
               )}
-              <CardHeader>
-                <CardTitle className="text-xl">{pkg.name}</CardTitle>
-                <CardDescription>
-                  <span className="text-2xl font-bold text-white block mt-2">{pkg.price}</span>
-                  <span className="text-xs">per person</span>
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-gray-400 mb-4">{pkg.description}</p>
-                <ul className="space-y-2">
-                  {pkg.features.map((feature, index) => (
-                    <li key={index} className="flex items-start">
-                      <CheckIcon className="h-5 w-5 text-cosmic-purple mr-2 flex-shrink-0" />
-                      <span className="text-sm">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-              <CardFooter>
-                <Button 
-                  className={`w-full ${selectedPackage === pkg.id ? 'bg-cosmic-purple hover:bg-cosmic-purple/80' : ''}`}
-                  variant={selectedPackage === pkg.id ? "default" : "outline"}
-                >
-                  {selectedPackage === pkg.id ? "SELECTED" : "SELECT PACKAGE"}
-                </Button>
-              </CardFooter>
-            </Card>
+              <Card 
+                className={`h-full transition-all duration-300 cursor-pointer ${
+                  selectedPackage === pkg.id 
+                    ? 'border-cosmic-purple ring-2 ring-cosmic-purple'
+                    : 'border-border hover:border-cosmic-purple/50'
+                } ${pkg.popular ? 'mt-4' : ''}`}
+                onClick={() => setSelectedPackage(pkg.id)}
+              >
+                <CardHeader>
+                  <CardTitle className="text-xl font-space">{pkg.name}</CardTitle>
+                  <CardDescription>
+                    <span className="text-2xl font-bold text-white block mt-2 font-space">{pkg.price}</span>
+                    <span className="text-xs">per person</span>
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-400 mb-4">{pkg.description}</p>
+                  <ul className="space-y-2">
+                    {pkg.features.map((feature, index) => (
+                      <li key={index} className="flex items-start">
+                        <CheckIcon className="h-5 w-5 text-cosmic-purple mr-2 flex-shrink-0" />
+                        <span className="text-sm">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+                <CardFooter>
+                  <Button 
+                    className={`w-full font-space ${selectedPackage === pkg.id ? 'bg-cosmic-purple hover:bg-cosmic-purple/80' : ''}`}
+                    variant={selectedPackage === pkg.id ? "default" : "outline"}
+                  >
+                    {selectedPackage === pkg.id ? "SELECTED" : "SELECT PACKAGE"}
+                  </Button>
+                </CardFooter>
+              </Card>
+            </div>
           ))}
         </div>
       </div>
