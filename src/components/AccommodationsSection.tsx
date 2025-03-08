@@ -1,6 +1,5 @@
-
 import { useState } from 'react';
-import { Motion, spring } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Star, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {

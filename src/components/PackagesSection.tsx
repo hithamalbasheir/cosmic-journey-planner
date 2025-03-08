@@ -1,4 +1,5 @@
 
+import { useState } from 'react';
 import { CheckIcon, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -85,6 +86,8 @@ const packages: Package[] = [
 ];
 
 const PackagesSection = () => {
+  const [selectedPackage, setSelectedPackage] = useState<string | null>(null);
+
   return (
     <section className="py-20 relative">
       <div className="container mx-auto px-4">
@@ -99,11 +102,14 @@ const PackagesSection = () => {
           {packages.map((pkg) => (
             <Card 
               key={pkg.id} 
-              className={`h-full transition-all duration-300 ${
-                pkg.popular 
+              className={`h-full transition-all duration-300 cursor-pointer ${
+                selectedPackage === pkg.id 
                   ? 'border-cosmic-purple ring-2 ring-cosmic-purple relative' 
-                  : 'border-border hover:border-cosmic-purple/50'
+                  : pkg.popular 
+                    ? 'border-cosmic-purple ring-2 ring-cosmic-purple relative'
+                    : 'border-border hover:border-cosmic-purple/50'
               }`}
+              onClick={() => setSelectedPackage(pkg.id)}
             >
               {pkg.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-cosmic-purple text-white text-xs font-bold py-1 px-4 rounded-full flex items-center">
@@ -131,10 +137,10 @@ const PackagesSection = () => {
               </CardContent>
               <CardFooter>
                 <Button 
-                  className={`w-full ${pkg.popular ? 'bg-cosmic-purple hover:bg-cosmic-purple/80' : ''}`}
-                  variant={pkg.popular ? "default" : "outline"}
+                  className={`w-full ${selectedPackage === pkg.id ? 'bg-cosmic-purple hover:bg-cosmic-purple/80' : pkg.popular ? 'bg-cosmic-purple hover:bg-cosmic-purple/80' : ''}`}
+                  variant={selectedPackage === pkg.id || pkg.popular ? "default" : "outline"}
                 >
-                  SELECT PACKAGE
+                  {selectedPackage === pkg.id ? "SELECTED" : "SELECT PACKAGE"}
                 </Button>
               </CardFooter>
             </Card>
