@@ -24,7 +24,7 @@ const destinations: Destination[] = [
   {
     id: 'moon',
     name: 'Lunar Resort',
-    description: 'Experience Earth's closest neighbor with stunning views and low-gravity recreation.',
+    description: 'Experience Earth\'s closest neighbor with stunning views and low-gravity recreation.',
     image: 'https://images.unsplash.com/photo-1532198742530-4a3a36f90c089',
     distance: '384,400 km',
     travelTime: '3 days'
@@ -40,7 +40,7 @@ const destinations: Destination[] = [
   {
     id: 'europa',
     name: 'Europa Station',
-    description: 'Discover the mysterious ocean world of Jupiter's icy moon at our deep-sea research station.',
+    description: 'Discover the mysterious ocean world of Jupiter\'s icy moon at our deep-sea research station.',
     image: 'https://images.unsplash.com/photo-1614732414444-096e5f1122d5',
     distance: '628 million km',
     travelTime: '13 months'
@@ -48,7 +48,7 @@ const destinations: Destination[] = [
   {
     id: 'titan',
     name: 'Titan Outpost',
-    description: 'Explore Saturn's largest moon with its thick atmosphere and hydrocarbon lakes.',
+    description: 'Explore Saturn\'s largest moon with its thick atmosphere and hydrocarbon lakes.',
     image: 'https://images.unsplash.com/photo-1614314107768-6018061ae61e',
     distance: '1.4 billion km',
     travelTime: '6 years'
