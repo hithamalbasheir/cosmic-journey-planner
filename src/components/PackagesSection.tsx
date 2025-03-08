@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { CheckIcon, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -103,12 +104,12 @@ const PackagesSection = () => {
               key={pkg.id} 
               className={`h-full transition-all duration-300 cursor-pointer ${
                 selectedPackage === pkg.id 
-                  ? 'border-cosmic-purple ring-2 ring-cosmic-purple relative' 
+                  ? 'border-cosmic-purple ring-2 ring-cosmic-purple relative'
                   : 'border-border hover:border-cosmic-purple/50'
               }`}
               onClick={() => setSelectedPackage(pkg.id)}
             >
-              {pkg.popular && !selectedPackage && (
+              {pkg.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-cosmic-purple text-white text-xs font-bold py-1 px-4 rounded-full flex items-center">
                   <Star className="h-3 w-3 mr-1 fill-white" />
                   MOST POPULAR
