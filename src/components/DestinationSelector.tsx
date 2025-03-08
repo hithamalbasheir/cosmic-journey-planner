@@ -25,7 +25,7 @@ const destinations: Destination[] = [
     id: 'moon',
     name: 'Lunar Resort',
     description: 'Experience Earth\'s closest neighbor with stunning views and low-gravity recreation.',
-    image: 'https://images.unsplash.com/photo-1532198742530-4a3a36f90c089',
+    image: 'https://images.unsplash.com/photo-1470813740244-df37b8c1edcb',
     distance: '384,400 km',
     travelTime: '3 days'
   },

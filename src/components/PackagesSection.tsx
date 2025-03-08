@@ -140,7 +140,7 @@ const PackagesSection = () => {
                     className={`w-full font-space ${selectedPackage === pkg.id ? 'bg-cosmic-purple hover:bg-cosmic-purple/80' : ''}`}
                     variant={selectedPackage === pkg.id ? "default" : "outline"}
                   >
-                    {selectedPackage === pkg.id ? "SELECTED" : "SELECT PACKAGE"}
+                    {selectedPackage === pkg.id ? "SELECTED" : "SELECT"}
                   </Button>
                 </CardFooter>
               </Card>
