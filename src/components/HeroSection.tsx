@@ -18,6 +18,13 @@ const HeroSection = () => {
   // Parallax effect
   const parallaxOffset = scrollY * 0.5;
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Stars Background */}
@@ -69,10 +76,19 @@ const HeroSection = () => {
           Experience the ultimate cosmic adventure with our luxury space travel packages. Book your voyage to the stars today.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button size="lg" className="bg-cosmic-purple hover:bg-cosmic-purple/80 text-lg px-8 py-6">
+          <Button 
+            size="lg" 
+            className="bg-cosmic-purple hover:bg-cosmic-purple/80 text-lg px-8 py-6"
+            onClick={() => scrollToSection('booking-section')}
+          >
             BOOK YOUR TRIP
           </Button>
-          <Button variant="outline" size="lg" className="border-cosmic-purple text-cosmic-purple hover:bg-cosmic-purple/10 text-lg px-8 py-6">
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="border-cosmic-purple text-cosmic-purple hover:bg-cosmic-purple/10 text-lg px-8 py-6"
+            onClick={() => scrollToSection('destinations-section')}
+          >
             EXPLORE DESTINATIONS
           </Button>
         </div>

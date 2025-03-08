@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { format } from 'date-fns';
 import { CalendarIcon, UsersIcon, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -17,12 +17,28 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
+import { toast } from 'sonner';
 
 const BookingForm = () => {
   const [departureDate, setDepartureDate] = useState<Date>();
   const [returnDate, setReturnDate] = useState<Date>();
   const [passengers, setPassengers] = useState<string>("1");
   const [classType, setClassType] = useState<string>("");
+
+  // Update return date if departure date is after return date
+  useEffect(() => {
+    if (departureDate && returnDate && departureDate > returnDate) {
+      setReturnDate(undefined);
+    }
+  }, [departureDate, returnDate]);
+
+  const handleDepartureDateChange = (date: Date | undefined) => {
+    setDepartureDate(date);
+  };
+
+  const handleReturnDateChange = (date: Date | undefined) => {
+    setReturnDate(date);
+  };
 
   const handleBookNow = () => {
     console.log({
@@ -33,11 +49,18 @@ const BookingForm = () => {
     });
     
     // In a real app, we would submit this data to a server
-    alert('Your cosmic journey has been booked! Check your dashboard for details.');
+    toast.success('Your cosmic journey has been booked! Check your dashboard for details.');
+  };
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
-    <section className="py-16 relative">
+    <section id="booking-section" className="py-16 relative">
       <div 
         className="absolute inset-0 bg-cosmic-pattern opacity-10 z-0"
         style={{ 
@@ -71,7 +94,7 @@ const BookingForm = () => {
                   <Calendar
                     mode="single"
                     selected={departureDate}
-                    onSelect={setDepartureDate}
+                    onSelect={handleDepartureDateChange}
                     initialFocus
                     disabled={(date) => date < new Date()}
                     className="p-3 pointer-events-auto"
@@ -100,7 +123,7 @@ const BookingForm = () => {
                   <Calendar
                     mode="single"
                     selected={returnDate}
-                    onSelect={setReturnDate}
+                    onSelect={handleReturnDateChange}
                     initialFocus
                     disabled={(date) => 
                       date < new Date() || (departureDate && date < departureDate)
