@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { CheckIcon, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -105,13 +104,11 @@ const PackagesSection = () => {
               className={`h-full transition-all duration-300 cursor-pointer ${
                 selectedPackage === pkg.id 
                   ? 'border-cosmic-purple ring-2 ring-cosmic-purple relative' 
-                  : pkg.popular 
-                    ? 'border-cosmic-purple ring-2 ring-cosmic-purple relative'
-                    : 'border-border hover:border-cosmic-purple/50'
+                  : 'border-border hover:border-cosmic-purple/50'
               }`}
               onClick={() => setSelectedPackage(pkg.id)}
             >
-              {pkg.popular && (
+              {pkg.popular && !selectedPackage && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-cosmic-purple text-white text-xs font-bold py-1 px-4 rounded-full flex items-center">
                   <Star className="h-3 w-3 mr-1 fill-white" />
                   MOST POPULAR
@@ -137,8 +134,8 @@ const PackagesSection = () => {
               </CardContent>
               <CardFooter>
                 <Button 
-                  className={`w-full ${selectedPackage === pkg.id ? 'bg-cosmic-purple hover:bg-cosmic-purple/80' : pkg.popular ? 'bg-cosmic-purple hover:bg-cosmic-purple/80' : ''}`}
-                  variant={selectedPackage === pkg.id || pkg.popular ? "default" : "outline"}
+                  className={`w-full ${selectedPackage === pkg.id ? 'bg-cosmic-purple hover:bg-cosmic-purple/80' : ''}`}
+                  variant={selectedPackage === pkg.id ? "default" : "outline"}
                 >
                   {selectedPackage === pkg.id ? "SELECTED" : "SELECT PACKAGE"}
                 </Button>
