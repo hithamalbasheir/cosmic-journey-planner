@@ -110,7 +110,7 @@ const PackagesSection = () => {
                 </div>
               )}
               <Card 
-                className={`h-full transition-all duration-300 cursor-pointer ${
+                className={`h-full flex flex-col transition-all duration-300 cursor-pointer ${
                   selectedPackage === pkg.id 
                     ? 'border-cosmic-purple ring-2 ring-cosmic-purple'
                     : 'border-border hover:border-cosmic-purple/50'
@@ -124,7 +124,7 @@ const PackagesSection = () => {
                     <span className="text-xs">per person</span>
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="flex-grow">
                   <p className="text-sm text-gray-400 mb-4">{pkg.description}</p>
                   <ul className="space-y-2">
                     {pkg.features.map((feature, index) => (
@@ -135,7 +135,7 @@ const PackagesSection = () => {
                     ))}
                   </ul>
                 </CardContent>
-                <CardFooter>
+                <CardFooter className="mt-auto">
                   <Button 
                     className={`w-full font-space ${selectedPackage === pkg.id ? 'bg-cosmic-purple hover:bg-cosmic-purple/80' : ''}`}
                     variant={selectedPackage === pkg.id ? "default" : "outline"}
