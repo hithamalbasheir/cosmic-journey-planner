@@ -106,7 +106,7 @@ const PackagesSection = () => {
                 selectedPackage === pkg.id 
                   ? 'border-cosmic-purple ring-2 ring-cosmic-purple relative'
                   : 'border-border hover:border-cosmic-purple/50'
-              }`}
+              } ${pkg.popular ? 'pt-6 mt-4' : ''}`}
               onClick={() => setSelectedPackage(pkg.id)}
             >
               {pkg.popular && (
