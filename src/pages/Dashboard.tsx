@@ -105,12 +105,12 @@ const travelTips: TravelTip[] = [
   },
   {
     id: 'tip-4',
-    tip: 'Schedule your sleep cycle adjustment 2 weeks before departure to match your destination's cycle.',
+    tip: 'Schedule your sleep cycle adjustment 2 weeks before departure to match your destination\'s cycle.',
     category: 'Health'
   },
   {
     id: 'tip-5',
-    tip: 'Try the hydroponic salad at the Lunar Palace Resort - it's freshly grown on-site!',
+    tip: 'Try the hydroponic salad at the Lunar Palace Resort - it\'s freshly grown on-site!',
     category: 'Dining'
   }
 ];
