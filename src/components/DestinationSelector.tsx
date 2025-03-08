@@ -33,7 +33,7 @@ const destinations: Destination[] = [
     id: 'mars',
     name: 'Mars Colony',
     description: 'Visit the thriving Mars Colony and experience the frontier of human settlement.',
-    image: 'https://images.unsplash.com/photo-1614728894747-a83421ad2b40',
+    image: 'https://images.unsplash.com/photo-1545156521-77bd85671d30',
     distance: '225 million km',
     travelTime: '7 months'
   },
@@ -49,7 +49,7 @@ const destinations: Destination[] = [
     id: 'titan',
     name: 'Titan Outpost',
     description: 'Explore Saturn\'s largest moon with its thick atmosphere and hydrocarbon lakes.',
-    image: 'https://images.unsplash.com/photo-1614314107768-6018061ae61e',
+    image: 'https://images.unsplash.com/photo-1630694093867-4b936ddd3775',
     distance: '1.4 billion km',
     travelTime: '6 years'
   },
@@ -59,7 +59,7 @@ const DestinationSelector = () => {
   const [selectedDestination, setSelectedDestination] = useState<string | null>(null);
 
   return (
-    <section className="py-20 relative">
+    <section id="destinations-section" className="py-20 relative">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 font-space">SELECT YOUR DESTINATION</h2>
