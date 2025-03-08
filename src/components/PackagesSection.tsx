@@ -99,11 +99,10 @@ const PackagesSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
-          {/* Add top padding to the entire grid to make room for the badge */}
-          <div className="absolute h-4 w-full top-0 left-0"></div>
+          {/* Add top margin to all cards to make room for the badge */}
           
           {packages.map((pkg) => (
-            <div key={pkg.id} className={`relative ${pkg.popular ? 'pt-4' : ''}`}>
+            <div key={pkg.id} className="relative mt-4">
               {pkg.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-cosmic-purple text-white text-xs font-bold py-1 px-4 rounded-full flex items-center z-10">
                   <Star className="h-3 w-3 mr-1 fill-white" />

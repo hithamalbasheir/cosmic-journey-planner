@@ -62,8 +62,8 @@ const DestinationSelector = () => {
     <section className="py-20 relative">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">SELECT YOUR DESTINATION</h2>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 font-space">SELECT YOUR DESTINATION</h2>
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto font-space">
             Choose from our selection of premium cosmic destinations, each offering a unique space experience.
           </p>
         </div>
@@ -91,7 +91,7 @@ const DestinationSelector = () => {
                   />
                 </div>
                 <CardHeader>
-                  <CardTitle>{destination.name}</CardTitle>
+                  <CardTitle className="font-space">{destination.name}</CardTitle>
                   <CardDescription>
                     <div className="flex justify-between text-xs mt-1">
                       <span>Distance: {destination.distance}</span>
@@ -105,7 +105,7 @@ const DestinationSelector = () => {
                 <CardFooter>
                   <Button 
                     variant={selectedDestination === destination.id ? "default" : "outline"} 
-                    className={selectedDestination === destination.id ? "bg-cosmic-purple w-full" : "w-full"}
+                    className={`${selectedDestination === destination.id ? "bg-cosmic-purple w-full" : "w-full"} font-space`}
                   >
                     {selectedDestination === destination.id ? "SELECTED" : "SELECT"}
                   </Button>
